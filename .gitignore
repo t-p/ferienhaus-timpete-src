@@ -1,3 +1,6 @@
+_site
 .DS_Store 
-.jekyll-assets-cache/
+.jekyll-assets-cache
 .projectile
+.sass-cache
+.jekyll-metadata
