@@ -3,33 +3,29 @@ markdown: redcarpet
 highlighter: pygments
 
 # Site settings
-title: "Ferienhaus TimpeTe"
+title: 'Ferienhaus TimpeTe'
 description: > # this means to ignore newlines until "email:"
   Am Breetzer Bodden 1a,
   18569 Vieregge
 
-email:  "email@ferienhaus-timpete.com"
-logo:  "logo.jpg"
-cover: "index-home.jpg"
-vicinity: "vicinity-home.jpg"
-booking: "booking-home.jpg"
-imprint: "imprint-home.jpg"
+email: 'email@ferienhaus-timpete.com'
+logo: 'logo.jpg'
+cover: 'index-home.jpg'
+vicinity: 'vicinity-home.jpg'
+booking: 'booking-home.jpg'
+imprint: 'imprint-home.jpg'
 
-name: ''
-author: ''
-#author_image: "/assets/images/author.jpg"
-
-url: "https://ferienhaus-timpete.com"
-baseurl: ""
+url: 'https://ferienhaus-timpete.com'
+baseurl: ''
 
 plugins:
   - jekyll-assets
-  #- jekyll-sitemap
+  - jekyll-sitemap
 
 assets:
-  js_compressor:  uglifier
+  js_compressor: uglifier
   css_compressor: sass
-  cache:          true
+  cache: true
 
 exclude:
   - Gemfile
@@ -41,49 +37,26 @@ exclude:
   - .ruby-version
 
 index_pictures:
-  - "index_img_001.jpg"
-  - "index_img_002.jpg"
-  - "index_img_003.jpg"
-  - "index_img_004.jpg"
-  - "index_img_005.jpg"
-  - "index_img_006.jpg"
-  - "index_img_007.jpg"
-  - "index_img_008.jpg"
-  - "index_img_009.jpg"
-  - "index_img_010.jpg"
-  - "index_img_011.jpg"
-  - "index_img_012.jpg"
-  - "index_img_013.jpg"
-  - "index_img_014.jpg"
-  - "index_img_015.jpg"
+  - 'index_img_001.jpg'
+  - 'index_img_002.jpg'
+  - 'index_img_003.jpg'
+  - 'index_img_004.jpg'
+  - 'index_img_005.jpg'
+  - 'index_img_006.jpg'
+  - 'index_img_007.jpg'
+  - 'index_img_008.jpg'
+  - 'index_img_009.jpg'
+  - 'index_img_010.jpg'
+  - 'index_img_011.jpg'
+  - 'index_img_012.jpg'
+  - 'index_img_013.jpg'
+  - 'index_img_014.jpg'
+  - 'index_img_015.jpg'
 vicinity_pictures:
-  - "vic_img_001.jpg"
-  - "vic_img_002.jpg"
-  - "vic_img_003.jpg"
-  - "vic_img_004.jpg"
-  - "vic_img_005.jpg"
-  - "vic_img_006.jpg"
-  - "vic_img_007.jpg"
-
-# social icons and sharing options
-social:
-  - icon: twitter
-    url:  https://twitter.com/pfeiffdrauf
-    desc: Follow me on twitter
-    share_url: http://twitter.com/share
-    share_title: ?text=
-    share_link: "&amp;url="
-
-#  - icon: github
-#    url:  https://github.com/t-p
-#    desc: Find me on github
-#    share_url:
-#    share_title:
-#    share_link:
-
-#  - icon: google-plus
-#    url:  https://google.com/???
-#    desc: Add me on google+
-#    share_url:
-#    share_title:
-#    share_link:
+  - 'vic_img_001.jpg'
+  - 'vic_img_002.jpg'
+  - 'vic_img_003.jpg'
+  - 'vic_img_004.jpg'
+  - 'vic_img_005.jpg'
+  - 'vic_img_006.jpg'
+  - 'vic_img_007.jpg'

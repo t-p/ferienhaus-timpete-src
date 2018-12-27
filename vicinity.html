@@ -3,50 +3,52 @@ layout: default
 ---
 
 <div class="teaserimage">
-  <div class="teaserimage-image" style="background-image: url({{ site.vicinity | asset_path }})">
-      Main Image
+  <div
+    class="teaserimage-image"
+    style="background-image: url({{ site.vicinity | asset_path }})"
+  >
+    Main Image
   </div>
 </div>
 
-<header class="blog-header">
-  <a class="blog-logo" href="{{site.url}}" style="background-image: url({{ site.logo | asset_path }})">{{ site.title }}</a>
-  <h1 class="blog-title">{{ site.title }}</h1>
-  <h2 class="blog-description">{{ site.description }}</h2>
-  <hr class>
-  <div class="custom-links">
-    <a href="/">..Beschreibung..</a>
-    <a href={{ "/vicinity.html" | prepend: site.baseurl }}>..Umgebung..</a>
-    <a href={{ "/booking.html" | prepend: site.baseurl }}>..Buchung..</a>
-    <a href={{ "/imprint.html" | prepend: site.baseurl }}>..Impressum..</a>
-  </div>
-</header>
+<header class="blog-header">{% include nav-bar.html %}</header>
 
 <main class="content" role="main">
   <h1>Umgebung</h1>
-  <p>Entdecken Sie den landschaftlich reizvollen Nord-Westen der Insel. Egal ob beim Wandern, Baden oder Surfen
-    an der naturbelassenen Badestelle, hier finden Sie Erholung.
+  <p>
+    Entdecken Sie den landschaftlich reizvollen Nord-Westen der Insel. Egal ob
+    beim Wandern, Baden oder Surfen an der naturbelassenen Badestelle, hier
+    finden Sie Erholung.
   </p>
-  <hr>
+  <hr />
   <div id="slider_container">
     <div u="slides">
       {% for picture in site.vicinity_pictures %}
-        <div>
-          <img u="image" src="{{ picture | asset_path }}" />
-        </div>
+      <div><img u="image" src="{{ picture | asset_path }}" /></div>
       {% endfor %}
     </div>
   </div>
-  <hr>
-  <p>Ein Bistro und einen Minishop finden Sie im nahen Hafengebäude. Dort können auch frische Brötchen bestellt werden.
-    Einen großen Supermarkt hat unser Hafendorf natürlich nicht, den finden Sie in Gingst oder Bergen.
-    Dafür gibt es aber Natur und Ruhe.
+  <hr />
+  <p>
+    Ein Bistro und einen Minishop finden Sie im nahen Hafengebäude. Dort können
+    auch frische Brötchen bestellt werden. Einen großen Supermarkt hat unser
+    Hafendorf natürlich nicht, den finden Sie in Gingst oder Bergen. Dafür gibt
+    es aber Natur und Ruhe.
   </p>
-  <p>Bringen Sie Ihr eigenens Boot mit, denn der voll ausgestattete Yachthafen mit 50 geschützten Bootsliegeplätzen und einer Tankstelle
-    ist der ideale Ausganspunkt für Ostseetörns. Sie können ein führerscheinfreies Motorbot für eine Angeltour oder eine Boddenrundfahrt ausleihen.
+  <p>
+    Bringen Sie Ihr eigenens Boot mit, denn der voll ausgestattete Yachthafen
+    mit 50 geschützten Bootsliegeplätzen und einer Tankstelle ist der ideale
+    Ausganspunkt für Ostseetörns. Sie können ein führerscheinfreies Motorbot für
+    eine Angeltour oder eine Boddenrundfahrt ausleihen.
   </p>
-  <p>In der Hauptsaison fährt eine Personenfähre nach Breege. Oder Sie fahren in 24 min zur Fähre nach Hiddensee.</p>
-  <p>Die flachen Ufer des Boddens laden zum Baden, Angeln und Surfen ein.<br /> In ca. 6km Entfernung gibt es einen Reiterhof.</p>
+  <p>
+    In der Hauptsaison fährt eine Personenfähre nach Breege. Oder Sie fahren in
+    24 min zur Fähre nach Hiddensee.
+  </p>
+  <p>
+    Die flachen Ufer des Boddens laden zum Baden, Angeln und Surfen ein.<br />
+    In ca. 6km Entfernung gibt es einen Reiterhof.
+  </p>
 </main>
 
-{% include footer-default.html %}
 {% javascript slider %}

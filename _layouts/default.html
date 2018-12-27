@@ -1,23 +1,18 @@
 <!DOCTYPE html>
 <html lang="en-us">
-
   {% include head.html %}
 
   <body itemscope itemtype="http://schema.org/Blog">
-
     {% include top-logo.html %}
 
     <!-- content start -->
 
     <div class="page-content">
-      <div class="wrapper">
-        {{ content }}
-      </div>
+      <div class="wrapper">{{ content }}</div>
     </div>
 
     <!-- content end -->
 
-    {% include javascripts.html %}
-
+    {% include javascripts.html %} {% include footer.html %}
   </body>
 </html>

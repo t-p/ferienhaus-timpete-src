@@ -1,0 +1,10 @@
+<a class="blog-logo" href="{{site.url}}" style="background-image: url({{ site.logo | asset_path }})">{{ site.title }}</a>
+<h1 class="blog-title">{{ site.title }}</h1>
+<h2 class="blog-description">{{ site.description }}</h2>
+<hr>
+<div class="custom-links">
+  <a href="/">..Beschreibung..</a>
+  <a href={{ "/vicinity.html" | prepend: site.baseurl }}>..Umgebung..</a>
+  <a href={{ "/booking.html" | prepend: site.baseurl }}>..Buchung..</a>
+  <a href={{ "/imprint.html" | prepend: site.baseurl }}>..Impressum..</a>
+</div>

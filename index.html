@@ -3,53 +3,65 @@ layout: default
 ---
 
 <div class="teaserimage">
-  <div class="teaserimage-image" style="background-image: url({{ site.cover | asset_path }})">
-      Main Image
+  <div
+    class="teaserimage-image"
+    style="background-image: url({{ site.cover | asset_path }})"
+  >
+    Main Image
   </div>
 </div>
 
-<header class="blog-header">
-  <a class="blog-logo" href="{{site.url}}" style="background-image: url({{ site.logo | asset_path }})">{{ site.title }}</a>
-  <h1 class="blog-title">{{ site.title }}</h1>
-  <h2 class="blog-description">{{ site.description }}</h2>
-  <hr>
-  <div class="custom-links">
-    <a href="/">..Beschreibung..</a>
-    <a href={{ "/vicinity.html" | prepend: site.baseurl }}>..Umgebung..</a>
-    <a href={{ "/booking.html" | prepend: site.baseurl }}>..Buchung..</a>
-    <a href={{ "/imprint.html" | prepend: site.baseurl }}>..Impressum..</a>
-  </div>
-</header>
+<header class="blog-header">{% include nav-bar.html %}</header>
 
 <main class="content" role="main">
   <h1>Liebe Gäste,</h1>
   <p>willkommen in unserem Ferienhaus im Hafendorf Vieregge.</p>
-  <hr>
+  <hr />
   <div id="slider_container">
     <div u="slides">
       {% for picture in site.index_pictures %}
-        <div>
-          <img u="image" src="{{ picture | asset_path }}" />
-        </div>
+      <div><img u="image" src="{{ picture | asset_path }}" /></div>
       {% endfor %}
     </div>
   </div>
-  <hr>
-  <p>Inmitten der Natur der Rügenschen Boddenlandschaft finden Sie dort Erholung abseits vom Massentourismus.</p>
-  <p>Unser Haus liegt am Rand des Hafendorfes mit Blick auf den Breetzer Bodden und den Yachthafen.</p>
-  <p>Ein Kaminofen und die Fußbodenheizung sorgen für eine behagliche Atmosphäre an kalten Tagen.</p>
-  <p>In der oberen Etage sind neben dem Bad und der Sauna 2 Schlafräume mit Boxspringbetten
-    (ein Doppelbett und 2 Einzelbetten) vorhanden.</p>
-  <p>Im Wohnbereich der unteren Etage befindet sich die offene Küche. Sie ist komplett ausgestattet und bietet
-    all die Annehmlichkeiten, die Sie auch von zu Hause gewohnt sind (Ceranfeld/Backofen, Kühlschrank mit Gefrierfach,
-    Wasserkocher, Toaster, Mikrowelle, Jura-Kaffeautomat, Milchaufschäumer, Geschirrspüler, Raclette...)</p>
-  <p>Ebenfalls im Erdgeschoss befindet sich ein zweites Bad mit Dusche, WC und die Waschmaschine.</p>
-  <p>Auf der Terrasse gibt es einen Strandkorb. Weitere Terrassenmöbel / Aufleger sowie einen elektrischen Grill
-    finden Sie im Nebengebäude. Für Familien mit kleinen Kindern gibt es dort ein Babybett und einen Hochstuhl.</p>
-  <p>Unser Haus ist ein Nichtraucherhaus.  Tiere sind nicht gestattet. Dadurch ist es auch für Allergiker geeignet.</p>
+  <hr />
+  <p>
+    Inmitten der Natur der Rügenschen Boddenlandschaft finden Sie dort Erholung
+    abseits vom Massentourismus.
+  </p>
+  <p>
+    Unser Haus liegt am Rand des Hafendorfes mit Blick auf den Breetzer Bodden
+    und den Yachthafen.
+  </p>
+  <p>
+    Ein Kaminofen und die Fußbodenheizung sorgen für eine behagliche Atmosphäre
+    an kalten Tagen.
+  </p>
+  <p>
+    In der oberen Etage sind neben dem Bad und der Sauna 2 Schlafräume mit
+    Boxspringbetten (ein Doppelbett und 2 Einzelbetten) vorhanden.
+  </p>
+  <p>
+    Im Wohnbereich der unteren Etage befindet sich die offene Küche. Sie ist
+    komplett ausgestattet und bietet all die Annehmlichkeiten, die Sie auch von
+    zu Hause gewohnt sind (Ceranfeld/Backofen, Kühlschrank mit Gefrierfach,
+    Wasserkocher, Toaster, Mikrowelle, Jura-Kaffeautomat, Milchaufschäumer,
+    Geschirrspüler, Raclette...)
+  </p>
+  <p>
+    Ebenfalls im Erdgeschoss befindet sich ein zweites Bad mit Dusche, WC und
+    die Waschmaschine.
+  </p>
+  <p>
+    Auf der Terrasse gibt es einen Strandkorb. Weitere Terrassenmöbel / Aufleger
+    sowie einen elektrischen Grill finden Sie im Nebengebäude. Für Familien mit
+    kleinen Kindern gibt es dort ein Babybett und einen Hochstuhl.
+  </p>
+  <p>
+    Unser Haus ist ein Nichtraucherhaus. Tiere sind nicht gestattet. Dadurch ist
+    es auch für Allergiker geeignet.
+  </p>
   <p>Ein schnelles und natürlich kostenloses WLAN ist ebenfalls vorhanden.</p>
-  <p>Bettwäsche und Fahrräder können beim Hafenmeister gebucht werden. Dort bekommen Sie auch Kaminholz.</p>
 </main>
 
-{% include footer-default.html %}
 {% javascript slider %}
