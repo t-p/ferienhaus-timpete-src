@@ -35,9 +35,11 @@ exclude:
   - .gitignore
   - .gitmodule
   - .ruby-version
+  - vendor
 
 index_pictures:
   - 'index_img_001.jpg'
+  - 'index_img_017.jpg'
   - 'index_img_002.jpg'
   - 'index_img_003.jpg'
   - 'index_img_004.jpg'
@@ -52,9 +54,12 @@ index_pictures:
   - 'index_img_013.jpg'
   - 'index_img_014.jpg'
   - 'index_img_015.jpg'
+  - 'index_img_016.jpg'
 vicinity_pictures:
   - 'vic_img_001.jpg'
+  - 'vic_img_009.jpg'
   - 'vic_img_002.jpg'
+  - 'vic_img_008.jpg'
   - 'vic_img_003.jpg'
   - 'vic_img_004.jpg'
   - 'vic_img_005.jpg'

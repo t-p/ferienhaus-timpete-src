@@ -4,3 +4,4 @@ _site
 .projectile
 .sass-cache
 .jekyll-metadata
+vendor
