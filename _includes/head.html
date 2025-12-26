@@ -5,8 +5,29 @@
   <!-- (1) force latest IE rendering engine: bit.ly/1c8EiC9 -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-  <title>{{ page.title | site.title }}</title>
-  <meta name="description" content="{{ site.description }}" />
+  <title>{% if page.title %}{{ page.title }} - {% endif %}Ferienhaus TimpeTe am Breetzer Bodden | Rügen Urlaub</title>
+  <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}Ferienhaus TimpeTe in Neuenkirchen auf Rügen. Direkt am Breetzer Bodden mit Sauna, WLAN, Parkplatz. Erholung abseits vom Massentourismus. Jetzt buchen!{% endif %}" />
+  
+  <!-- SEO Meta Tags -->
+  <meta name="keywords" content="Ferienhaus Rügen, Urlaub Rügen, Neuenkirchen, Breetzer Bodden, Ferienhaus mit Sauna, Rügen Ferienwohnung, Ostsee Urlaub, Boddenlandschaft" />
+  <meta name="author" content="Kriemhild Pfeiffer" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}" />
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}" />
+  <meta property="og:title" content="{% if page.title %}{{ page.title }} - {% endif %}Ferienhaus TimpeTe am Breetzer Bodden" />
+  <meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}Ferienhaus TimpeTe in Neuenkirchen auf Rügen. Direkt am Breetzer Bodden mit Sauna, WLAN, Parkplatz.{% endif %}" />
+  <meta property="og:image" content="{{ site.cover | asset_path | prepend: site.url }}" />
+  <meta property="og:locale" content="de_DE" />
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}" />
+  <meta property="twitter:title" content="{% if page.title %}{{ page.title }} - {% endif %}Ferienhaus TimpeTe am Breetzer Bodden" />
+  <meta property="twitter:description" content="{% if page.description %}{{ page.description }}{% else %}Ferienhaus TimpeTe in Neuenkirchen auf Rügen. Direkt am Breetzer Bodden mit Sauna, WLAN, Parkplatz.{% endif %}" />
+  <meta property="twitter:image" content="{{ site.cover | asset_path | prepend: site.url }}" />
 
   <meta name="HandheldFriendly" content="True" />
   <meta name="MobileOptimized" content="320" />
@@ -25,4 +46,55 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   {% stylesheet main %}
+
+  <!-- Schema.org structured data for vacation rental -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LodgingBusiness",
+    "name": "Ferienhaus TimpeTe am Breetzer Bodden",
+    "description": "Ferienhaus in Vieregge mit Blick auf den Breetzer Bodden und Yachthafen. Inmitten der Rügenschen Boddenlandschaft finden Sie Erholung abseits vom Massentourismus.",
+    "url": "https://ferienhaus-timpete.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Am Breetzer Bodden 1a",
+      "addressLocality": "Neuenkirchen",
+      "addressRegion": "Rügen",
+      "postalCode": "18569",
+      "addressCountry": "DE"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "54.56753",
+      "longitude": "13.32760"
+    },
+    "amenityFeature": [
+      {"@type": "LocationFeatureSpecification", "name": "Free WiFi"},
+      {"@type": "LocationFeatureSpecification", "name": "Sauna"},
+      {"@type": "LocationFeatureSpecification", "name": "Free Parking"},
+      {"@type": "LocationFeatureSpecification", "name": "Full Kitchen"},
+      {"@type": "LocationFeatureSpecification", "name": "Fireplace"},
+      {"@type": "LocationFeatureSpecification", "name": "Terrace"},
+      {"@type": "LocationFeatureSpecification", "name": "Washing Machine"},
+      {"@type": "LocationFeatureSpecification", "name": "Dishwasher"},
+      {"@type": "LocationFeatureSpecification", "name": "Coffee Machine"},
+      {"@type": "LocationFeatureSpecification", "name": "Non-Smoking"}
+    ],
+    "numberOfRooms": "3",
+    "maximumAttendeeCapacity": "4",
+    "petsAllowed": false,
+    "smokingAllowed": false,
+    "checkinTime": "15:00",
+    "checkoutTime": "16:00",
+    "priceRange": "€€",
+    "telephone": "+4915226790972",
+    "email": "k.pfeiffer@ibpfeiffer.de",
+    "image": [
+      "{{ site.cover | asset_path | prepend: site.url }}",
+      "{{ site.index_pictures[0] | asset_path | prepend: site.url }}",
+      "{{ site.index_pictures[1] | asset_path | prepend: site.url }}"
+    ],
+    "hasMap": "https://www.google.com/maps/place/Vieregge"
+  }
+  </script>
 </head>
