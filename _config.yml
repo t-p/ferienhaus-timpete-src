@@ -3,20 +3,20 @@ markdown: redcarpet
 highlighter: pygments
 
 # Site settings
-title: 'Ferienhaus TimpeTe'
+title: "Ferienhaus TimpeTe"
 description: > # this means to ignore newlines until "email:"
   Am Breetzer Bodden 1a,
   18569 Vieregge
 
-email: 'email@ferienhaus-timpete.com'
-logo: 'logo.jpg'
-cover: 'index-home.jpg'
-vicinity: 'vicinity-home.jpg'
-booking: 'booking-home.jpg'
-imprint: 'imprint-home.jpg'
+email: "email@ferienhaus-timpete.com"
+logo: "logo.jpg"
+cover: "index-home.jpg"
+vicinity: "vicinity-home.jpg"
+booking: "booking-home.jpg"
+imprint: "imprint-home.jpg"
 
-url: 'https://ferienhaus-timpete.com'
-baseurl: ''
+url: "https://ferienhaus-timpete.com"
+baseurl: ""
 
 plugins:
   - jekyll-assets
@@ -38,30 +38,31 @@ exclude:
   - vendor
 
 index_pictures:
-  - 'index_img_001.jpg'
-  - 'index_img_017.jpg'
-  - 'index_img_002.jpg'
-  - 'index_img_003.jpg'
-  - 'index_img_004.jpg'
-  - 'index_img_005.jpg'
-  - 'index_img_006.jpg'
-  - 'index_img_007.jpg'
-  - 'index_img_008.jpg'
-  - 'index_img_009.jpg'
-  - 'index_img_010.jpg'
-  - 'index_img_011.jpg'
-  - 'index_img_012.jpg'
-  - 'index_img_013.jpg'
-  - 'index_img_014.jpg'
-  - 'index_img_015.jpg'
-  - 'index_img_016.jpg'
+  - "index_img_001.jpg"
+  - "index_img_017.jpg"
+  - "IMG_0586.jpg"
+  - "IMG_0483.jpg"
+  - "index_img_003.jpg"
+  - "IMG_0469.jpg"
+  - "IMG_0484.jpg"
+  - "IMG_0587.jpg"
+  - "index_img_007.jpg"
+  - "index_img_008.jpg"
+  - "index_img_009.jpg"
+  - "index_img_010.jpg"
+  - "index_img_011.jpg"
+  - "index_img_013.jpg"
+  - "index_img_014.jpg"
+  - "IMG_0360.jpg"
+  - "index_img_016.jpg"
+  - "IMG_0588.jpg"
 vicinity_pictures:
-  - 'vic_img_001.jpg'
-  - 'vic_img_009.jpg'
-  - 'vic_img_002.jpg'
-  - 'vic_img_008.jpg'
-  - 'vic_img_003.jpg'
-  - 'vic_img_004.jpg'
-  - 'vic_img_005.jpg'
-  - 'vic_img_006.jpg'
-  - 'vic_img_007.jpg'
+  - "vic_img_001.jpg"
+  - "vic_img_009.jpg"
+  - "IMG_0589.jpg"
+  - "vic_img_008.jpg"
+  - "vic_img_003.jpg"
+  - "vic_img_004.jpg"
+  - "vic_img_005.jpg"
+  - "vic_img_006.jpg"
+  - "vic_img_007.jpg"
