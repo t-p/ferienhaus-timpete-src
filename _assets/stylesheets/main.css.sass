@@ -56,6 +56,7 @@ body
   .teaserimage-image
     background-size: cover
     background-position: center
+    background-attachment: fixed
     position: absolute
     top: 0
     left: 0
@@ -63,6 +64,8 @@ body
     bottom: 0
     z-index: 1
     text-indent: -9999px
+    transform: translateZ(0)
+    will-change: transform
 
 .blog-header
   width: 100%

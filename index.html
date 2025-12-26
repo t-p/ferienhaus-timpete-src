@@ -90,6 +90,17 @@ layout: default
 {% javascript slider %}
 
 <script>
+// Parallax effect for hero image
+$(window).on("scroll", function() {
+  var top = $(window).scrollTop();
+  if (top < 0 || top > 1500) return;
+  $(".teaserimage-image")
+    .css("transform", "translate3d(0px, " + top/3 + "px, 0px)")
+    .css("opacity", 1 - Math.max(top / 700, 0));
+});
+
+$(window).trigger("scroll");
+
 let currentImageIndex = 0;
 const galleryImages = [
   {% for picture in site.index_pictures %}'{{ picture | asset_path }}'{% unless forloop.last %},{% endunless %}{% endfor %}
