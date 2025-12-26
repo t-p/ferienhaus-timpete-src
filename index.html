@@ -17,11 +17,33 @@ layout: default
   <h1>Liebe Gäste,</h1>
   <p>willkommen in unserem Ferienhaus im Hafendorf Vieregge.</p>
   <hr />
-  <div id="slider_container">
-    <div u="slides">
-      {% for picture in site.index_pictures %}
-      <div><img u="image" src="{{ picture | asset_path }}" /></div>
+  <div class="image-gallery">
+    <div class="gallery-grid">
+      {% for picture in site.index_pictures limit:6 %}
+      <div class="gallery-item" onclick="openLightbox('{{ picture | asset_path }}')">
+        <img src="{{ picture | asset_path }}" alt="Ferienhaus TimpeTe" loading="lazy">
+        <div class="gallery-overlay">
+          <i class="fa fa-expand"></i>
+        </div>
+      </div>
       {% endfor %}
+    </div>
+    {% if site.index_pictures.size > 6 %}
+    <div class="gallery-more">
+      <button class="gallery-more-btn" onclick="showAllImages()">
+        Alle {{ site.index_pictures.size }} Bilder anzeigen
+      </button>
+    </div>
+    {% endif %}
+  </div>
+  
+  <!-- Lightbox Modal -->
+  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <span class="lightbox-close">&times;</span>
+    <img id="lightbox-img" class="lightbox-content">
+    <div class="lightbox-nav">
+      <button class="lightbox-prev" onclick="event.stopPropagation(); changeLightboxImage(-1)">&#10094;</button>
+      <button class="lightbox-next" onclick="event.stopPropagation(); changeLightboxImage(1)">&#10095;</button>
     </div>
   </div>
   <hr />
@@ -66,3 +88,64 @@ layout: default
 </main>
 
 {% javascript slider %}
+
+<script>
+let currentImageIndex = 0;
+const galleryImages = [
+  {% for picture in site.index_pictures %}'{{ picture | asset_path }}'{% unless forloop.last %},{% endunless %}{% endfor %}
+];
+
+function openLightbox(imageSrc) {
+  currentImageIndex = galleryImages.indexOf(imageSrc);
+  document.getElementById('lightbox').style.display = 'block';
+  document.getElementById('lightbox-img').src = imageSrc;
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  document.getElementById('lightbox').style.display = 'none';
+  document.body.style.overflow = 'auto';
+}
+
+function changeLightboxImage(direction) {
+  currentImageIndex += direction;
+  if (currentImageIndex >= galleryImages.length) currentImageIndex = 0;
+  if (currentImageIndex < 0) currentImageIndex = galleryImages.length - 1;
+  document.getElementById('lightbox-img').src = galleryImages[currentImageIndex];
+}
+
+function showAllImages() {
+  const grid = document.querySelector('.gallery-grid');
+  const moreBtn = document.querySelector('.gallery-more');
+  
+  // Add remaining images
+  const remainingImages = [
+    {% for picture in site.index_pictures offset:6 %}'{{ picture | asset_path }}'{% unless forloop.last %},{% endunless %}{% endfor %}
+  ];
+  
+  remainingImages.forEach(imageSrc => {
+    const item = document.createElement('div');
+    item.className = 'gallery-item';
+    item.onclick = () => openLightbox(imageSrc);
+    item.innerHTML = `
+      <img src="${imageSrc}" alt="Ferienhaus TimpeTe" loading="lazy">
+      <div class="gallery-overlay">
+        <i class="fa fa-expand"></i>
+      </div>
+    `;
+    grid.appendChild(item);
+  });
+  
+  grid.style.maxHeight = 'none';
+  moreBtn.style.display = 'none';
+}
+
+// Keyboard navigation
+document.addEventListener('keydown', function(e) {
+  if (document.getElementById('lightbox').style.display === 'block') {
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') changeLightboxImage(-1);
+    if (e.key === 'ArrowRight') changeLightboxImage(1);
+  }
+});
+</script>

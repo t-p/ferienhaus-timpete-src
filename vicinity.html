@@ -21,11 +21,33 @@ layout: default
     finden Sie Erholung.
   </p>
   <hr />
-  <div id="slider_container">
-    <div u="slides">
-      {% for picture in site.vicinity_pictures %}
-      <div><img u="image" src="{{ picture | asset_path }}" /></div>
+  <div class="image-gallery">
+    <div class="gallery-grid">
+      {% for picture in site.vicinity_pictures limit:6 %}
+      <div class="gallery-item" onclick="openVicinityLightbox('{{ picture | asset_path }}')">
+        <img src="{{ picture | asset_path }}" alt="Umgebung Ferienhaus TimpeTe" loading="lazy">
+        <div class="gallery-overlay">
+          <i class="fa fa-expand"></i>
+        </div>
+      </div>
       {% endfor %}
+    </div>
+    {% if site.vicinity_pictures.size > 6 %}
+    <div class="gallery-more">
+      <button class="gallery-more-btn" onclick="showAllVicinityImages()">
+        Alle {{ site.vicinity_pictures.size }} Bilder anzeigen
+      </button>
+    </div>
+    {% endif %}
+  </div>
+  
+  <!-- Lightbox Modal -->
+  <div id="vicinity-lightbox" class="lightbox" onclick="closeVicinityLightbox()">
+    <span class="lightbox-close">&times;</span>
+    <img id="vicinity-lightbox-img" class="lightbox-content">
+    <div class="lightbox-nav">
+      <button class="lightbox-prev" onclick="event.stopPropagation(); changeVicinityLightboxImage(-1)">&#10094;</button>
+      <button class="lightbox-next" onclick="event.stopPropagation(); changeVicinityLightboxImage(1)">&#10095;</button>
     </div>
   </div>
   <hr />
@@ -50,3 +72,64 @@ layout: default
 </main>
 
 {% javascript slider %}
+
+<script>
+let currentVicinityImageIndex = 0;
+const vicinityGalleryImages = [
+  {% for picture in site.vicinity_pictures %}'{{ picture | asset_path }}'{% unless forloop.last %},{% endunless %}{% endfor %}
+];
+
+function openVicinityLightbox(imageSrc) {
+  currentVicinityImageIndex = vicinityGalleryImages.indexOf(imageSrc);
+  document.getElementById('vicinity-lightbox').style.display = 'block';
+  document.getElementById('vicinity-lightbox-img').src = imageSrc;
+  document.body.style.overflow = 'hidden';
+}
+
+function closeVicinityLightbox() {
+  document.getElementById('vicinity-lightbox').style.display = 'none';
+  document.body.style.overflow = 'auto';
+}
+
+function changeVicinityLightboxImage(direction) {
+  currentVicinityImageIndex += direction;
+  if (currentVicinityImageIndex >= vicinityGalleryImages.length) currentVicinityImageIndex = 0;
+  if (currentVicinityImageIndex < 0) currentVicinityImageIndex = vicinityGalleryImages.length - 1;
+  document.getElementById('vicinity-lightbox-img').src = vicinityGalleryImages[currentVicinityImageIndex];
+}
+
+function showAllVicinityImages() {
+  const grid = document.querySelector('.gallery-grid');
+  const moreBtn = document.querySelector('.gallery-more');
+  
+  // Add remaining images
+  const remainingImages = [
+    {% for picture in site.vicinity_pictures offset:6 %}'{{ picture | asset_path }}'{% unless forloop.last %},{% endunless %}{% endfor %}
+  ];
+  
+  remainingImages.forEach(imageSrc => {
+    const item = document.createElement('div');
+    item.className = 'gallery-item';
+    item.onclick = () => openVicinityLightbox(imageSrc);
+    item.innerHTML = `
+      <img src="${imageSrc}" alt="Umgebung Ferienhaus TimpeTe" loading="lazy">
+      <div class="gallery-overlay">
+        <i class="fa fa-expand"></i>
+      </div>
+    `;
+    grid.appendChild(item);
+  });
+  
+  grid.style.maxHeight = 'none';
+  moreBtn.style.display = 'none';
+}
+
+// Keyboard navigation
+document.addEventListener('keydown', function(e) {
+  if (document.getElementById('vicinity-lightbox').style.display === 'block') {
+    if (e.key === 'Escape') closeVicinityLightbox();
+    if (e.key === 'ArrowLeft') changeVicinityLightboxImage(-1);
+    if (e.key === 'ArrowRight') changeVicinityLightboxImage(1);
+  }
+});
+</script>
