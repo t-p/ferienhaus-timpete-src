@@ -2,9 +2,25 @@
 <h1 class="blog-title">{{ site.title }}</h1>
 <h2 class="blog-description">{{ site.description }}</h2>
 <hr>
+<div class="language-switcher">
+  {% if page.lang == 'en' %}
+    <a href="/" class="lang-link">🇩🇪 Deutsch</a>
+    <span class="lang-current">🇬🇧 English</span>
+  {% else %}
+    <span class="lang-current">🇩🇪 Deutsch</span>
+    <a href="/en/" class="lang-link">🇬🇧 English</a>
+  {% endif %}
+</div>
 <div class="custom-links">
-  <a href="/">..Beschreibung..</a>
-  <a href={{ "/vicinity.html" | prepend: site.baseurl }}>..Umgebung..</a>
-  <a href={{ "/booking.html" | prepend: site.baseurl }}>..Buchung..</a>
-  <a href={{ "/imprint.html" | prepend: site.baseurl }}>..Impressum..</a>
+  {% if page.lang == 'en' %}
+    <a href="/en/">..Description..</a>
+    <a href="/en/vicinity.html">..Vicinity..</a>
+    <a href="/en/booking.html">..Booking..</a>
+    <a href="/imprint.html">..Impressum..</a>
+  {% else %}
+    <a href="/">..Beschreibung..</a>
+    <a href={{ "/vicinity.html" | prepend: site.baseurl }}>..Umgebung..</a>
+    <a href={{ "/booking.html" | prepend: site.baseurl }}>..Buchung..</a>
+    <a href={{ "/imprint.html" | prepend: site.baseurl }}>..Impressum..</a>
+  {% endif %}
 </div>

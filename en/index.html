@@ -1,8 +1,8 @@
 ---
 layout: default
-title: Ferienhaus TimpeTe
-description: Ferienhaus TimpeTe am Breetzer Bodden in Neuenkirchen auf Rügen. Sauna, WLAN, Parkplatz, Kamin. Erholung in der Rügenschen Boddenlandschaft abseits vom Massentourismus.
-lang: de
+title: Holiday House TimpeTe
+description: Holiday House TimpeTe at Breetzer Bodden in Neuenkirchen on Rügen. Sauna, WiFi, parking, fireplace. Relaxation in the Rügen Bodden landscape away from mass tourism.
+lang: en
 ---
 
 <div class="teaserimage">
@@ -17,14 +17,14 @@ lang: de
 <header class="blog-header">{% include nav-bar.html %}</header>
 
 <main class="content" role="main">
-  <h1>Liebe Gäste,</h1>
-  <p>willkommen in unserem Ferienhaus im Hafendorf Vieregge.</p>
+  <h1>Dear Guests,</h1>
+  <p>welcome to our holiday house in the harbor village of Vieregge.</p>
   <hr />
   <div class="image-gallery">
     <div class="gallery-grid">
       {% for picture in site.index_pictures limit:6 %}
       <div class="gallery-item" onclick="openLightbox('{{ picture | asset_path }}')">
-        <img src="{{ picture | asset_path }}" alt="Ferienhaus TimpeTe" loading="lazy">
+        <img src="{{ picture | asset_path }}" alt="Holiday House TimpeTe" loading="lazy">
         <div class="gallery-overlay">
           <i class="fa fa-expand"></i>
         </div>
@@ -34,7 +34,7 @@ lang: de
     {% if site.index_pictures.size > 6 %}
     <div class="gallery-more">
       <button class="gallery-more-btn" onclick="showAllImages()">
-        Alle {{ site.index_pictures.size }} Bilder anzeigen
+        Show all {{ site.index_pictures.size }} images
       </button>
     </div>
     {% endif %}
@@ -51,43 +51,43 @@ lang: de
   </div>
   <hr />
   <p>
-    Inmitten der Natur der Rügenschen Boddenlandschaft finden Sie Erholung
-    abseits vom Massentourismus.
+    In the midst of nature of the Rügen Bodden landscape, you will find relaxation
+    away from mass tourism.
   </p>
   <p>
-    Unser Haus liegt am Rand des Hafendorfes mit Blick auf den Breetzer Bodden
-    und den Yachthafen.
+    Our house is located on the edge of the harbor village with a view of the Breetzer Bodden
+    and the marina.
   </p>
   <p>
-    Ein Kaminofen und die Fußbodenheizung sorgen für eine behagliche Atmosphäre
-    an kalten Tagen.
+    A fireplace and underfloor heating provide a cozy atmosphere
+    on cold days.
   </p>
   <p>
-    In der oberen Etage sind neben dem Bad und der Sauna 2 Schlafräume mit
-    Boxspringbetten (ein Doppelbett und 2 Einzelbetten) vorhanden.
+    On the upper floor, in addition to the bathroom and sauna, there are 2 bedrooms with
+    box spring beds (one double bed and 2 single beds).
   </p>
   <p>
-    Im Wohnbereich der unteren Etage befindet sich die offene Küche. Sie ist
-    komplett ausgestattet und bietet all die Annehmlichkeiten, die Sie auch von
-    zu Hause gewohnt sind (Ceranfeld/Backofen, Kühlschrank mit Gefrierfach,
-    Wasserkocher, Toaster, Mikrowelle, Jura-Kaffeautomat, Milchaufschäumer,
-    Geschirrspüler, Raclette...)
+    The open kitchen is located in the living area on the lower floor. It is
+    fully equipped and offers all the amenities you are used to from
+    home (ceramic hob/oven, refrigerator with freezer compartment,
+    kettle, toaster, microwave, Jura coffee machine, milk frother,
+    dishwasher, raclette...)
   </p>
   <p>
-    Ebenfalls im Erdgeschoss befindet sich ein zweites Bad mit Dusche, WC und
-    die Waschmaschine.
+    Also on the ground floor is a second bathroom with shower, toilet and
+    the washing machine.
   </p>
   <p>
-    Auf der Terrasse gibt es einen Strandkorb. Weitere Terrassenmöbel / Aufleger
-    sowie einen elektrischen Grill finden Sie im Nebengebäude. Für Familien mit
-    kleinen Kindern gibt es dort ein Babybett und einen Hochstuhl.
+    On the terrace there is a beach chair. Additional terrace furniture / cushions
+    as well as an electric grill can be found in the outbuilding. For families with
+    small children there is a baby bed and a high chair.
   </p>
   <p>
-    Unser Haus ist ein Nichtraucherhaus. Tiere sind nicht gestattet. Dadurch ist
-    es auch für Allergiker geeignet.
+    Our house is a non-smoking house. Animals are not allowed. This makes it
+    also suitable for allergy sufferers.
   </p>
-  <p>Ein schnelles und natürlich kostenloses WLAN ist ebenfalls vorhanden.</p>
-  <p>Neben dem Ferienhaus befindet sich ein kostenloser Parkplatz für 1 Auto.</p>
+  <p>Fast and of course free WiFi is also available.</p>
+  <p>Next to the holiday house there is a free parking space for 1 car.</p>
 </main>
 
 {% javascript slider %}
@@ -142,7 +142,7 @@ function showAllImages() {
     item.className = 'gallery-item';
     item.onclick = () => openLightbox(imageSrc);
     item.innerHTML = `
-      <img src="${imageSrc}" alt="Ferienhaus TimpeTe" loading="lazy">
+      <img src="${imageSrc}" alt="Holiday House TimpeTe" loading="lazy">
       <div class="gallery-overlay">
         <i class="fa fa-expand"></i>
       </div>

@@ -1,0 +1,149 @@
+---
+layout: default
+title: Vicinity & Activities
+description: Discover the surroundings of Holiday House TimpeTe. Marina, Hiddensee ferry, Bodden for swimming and fishing. Nature and tranquility on Rügen.
+lang: en
+---
+
+<div class="teaserimage">
+  <div
+    class="teaserimage-image"
+    style="background-image: url({{ site.vicinity | asset_path }})"
+  >
+    Main Image
+  </div>
+</div>
+
+<header class="blog-header">{% include nav-bar.html %}</header>
+
+<main class="content" role="main">
+  <h1>Vicinity</h1>
+  <p>
+    Discover the scenic northwest of the island. Whether
+    hiking, swimming or surfing at the natural bathing area, here
+    you will find relaxation.
+  </p>
+  <hr />
+  <div class="image-gallery">
+    <div class="gallery-grid">
+      {% for picture in site.vicinity_pictures limit:6 %}
+      <div class="gallery-item" onclick="openVicinityLightbox('{{ picture | asset_path }}')">
+        <img src="{{ picture | asset_path }}" alt="Vicinity Holiday House TimpeTe" loading="lazy">
+        <div class="gallery-overlay">
+          <i class="fa fa-expand"></i>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    {% if site.vicinity_pictures.size > 6 %}
+    <div class="gallery-more">
+      <button class="gallery-more-btn" onclick="showAllVicinityImages()">
+        Show all {{ site.vicinity_pictures.size }} images
+      </button>
+    </div>
+    {% endif %}
+  </div>
+  
+  <!-- Lightbox Modal -->
+  <div id="vicinity-lightbox" class="lightbox" onclick="closeVicinityLightbox()">
+    <span class="lightbox-close">&times;</span>
+    <img id="vicinity-lightbox-img" class="lightbox-content">
+    <div class="lightbox-nav">
+      <button class="lightbox-prev" onclick="event.stopPropagation(); changeVicinityLightboxImage(-1)">&#10094;</button>
+      <button class="lightbox-next" onclick="event.stopPropagation(); changeVicinityLightboxImage(1)">&#10095;</button>
+    </div>
+  </div>
+  <hr />
+  <p>
+    Our harbor village naturally doesn't have a large supermarket, 
+    you'll find that in Gingst or Bergen. But there is nature and tranquility.
+  </p>
+  <p>
+    Bring your own boat, as the fully equipped marina
+    with protected boat berths and a gas station is the ideal
+    starting point for Baltic Sea tours. You can also rent a license-free motorboat for
+    a fishing trip or a Bodden tour.
+  </p>
+  <p>
+    In the main season, a passenger ferry runs to Hiddensee. Or you can drive in
+    24 minutes to the ferry to Hiddensee.
+  </p>
+  <p>
+    The shallow shores of the Bodden invite swimming, fishing and surfing.<br />
+    About 6km away there is a riding stable.
+  </p>
+</main>
+
+{% javascript slider %}
+
+<script>
+// Parallax effect for hero image
+$(window).on("scroll", function() {
+  var top = $(window).scrollTop();
+  if (top < 0 || top > 1500) return;
+  $(".teaserimage-image")
+    .css("transform", "translate3d(0px, " + top/3 + "px, 0px)")
+    .css("opacity", 1 - Math.max(top / 700, 0));
+});
+
+$(window).trigger("scroll");
+
+let currentVicinityImageIndex = 0;
+const vicinityGalleryImages = [
+  {% for picture in site.vicinity_pictures %}'{{ picture | asset_path }}'{% unless forloop.last %},{% endunless %}{% endfor %}
+];
+
+function openVicinityLightbox(imageSrc) {
+  currentVicinityImageIndex = vicinityGalleryImages.indexOf(imageSrc);
+  document.getElementById('vicinity-lightbox').style.display = 'block';
+  document.getElementById('vicinity-lightbox-img').src = imageSrc;
+  document.body.style.overflow = 'hidden';
+}
+
+function closeVicinityLightbox() {
+  document.getElementById('vicinity-lightbox').style.display = 'none';
+  document.body.style.overflow = 'auto';
+}
+
+function changeVicinityLightboxImage(direction) {
+  currentVicinityImageIndex += direction;
+  if (currentVicinityImageIndex >= vicinityGalleryImages.length) currentVicinityImageIndex = 0;
+  if (currentVicinityImageIndex < 0) currentVicinityImageIndex = vicinityGalleryImages.length - 1;
+  document.getElementById('vicinity-lightbox-img').src = vicinityGalleryImages[currentVicinityImageIndex];
+}
+
+function showAllVicinityImages() {
+  const grid = document.querySelector('.gallery-grid');
+  const moreBtn = document.querySelector('.gallery-more');
+  
+  // Add remaining images
+  const remainingImages = [
+    {% for picture in site.vicinity_pictures offset:6 %}'{{ picture | asset_path }}'{% unless forloop.last %},{% endunless %}{% endfor %}
+  ];
+  
+  remainingImages.forEach(imageSrc => {
+    const item = document.createElement('div');
+    item.className = 'gallery-item';
+    item.onclick = () => openVicinityLightbox(imageSrc);
+    item.innerHTML = `
+      <img src="${imageSrc}" alt="Vicinity Holiday House TimpeTe" loading="lazy">
+      <div class="gallery-overlay">
+        <i class="fa fa-expand"></i>
+      </div>
+    `;
+    grid.appendChild(item);
+  });
+  
+  grid.style.maxHeight = 'none';
+  moreBtn.style.display = 'none';
+}
+
+// Keyboard navigation
+document.addEventListener('keydown', function(e) {
+  if (document.getElementById('vicinity-lightbox').style.display === 'block') {
+    if (e.key === 'Escape') closeVicinityLightbox();
+    if (e.key === 'ArrowLeft') changeVicinityLightboxImage(-1);
+    if (e.key === 'ArrowRight') changeVicinityLightboxImage(1);
+  }
+});
+</script>
